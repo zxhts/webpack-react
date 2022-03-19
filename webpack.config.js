@@ -6,6 +6,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
     //配置环境
     mode: 'development', //不配置mode,默认模式是生产环境production
+
+    devtool: '#source-map',
     
     // 配置入口
     entry: {
@@ -16,15 +18,27 @@ module.exports = {
         path: path.join(__dirname, './dist'), //这要求绝对路径， 必须引入path包
         filename: '[name]-[hash:8].js' //可以写成这种，生成8位数的hash值，防止浏览器缓存
     },
+    resolve: {
+      extensions: ['.ts', '.tsx', '.json', '.js'],
+      alias: {
+        '@components': __dirname + '/src/components'
+      }
+    },
     module: {
         rules: [
+          {
+            test: /\.tsx?$/,
+            loader: 'ts-loader',
+            exclude: /node_modules/,
+            options: {
+              // 指定特定的ts编译配置，为了区分脚本的ts配置
+              configFile: path.resolve(__dirname, './tsconfig.json'),
+            },
+          },
           {
             test: /\.(js|jsx)$/,
             loader: 'babel-loader',
             exclude: /node_modules/,
-                // query: {
-                //   presets: ['react', 'es2015', 'stage-0'],
-                // }
             options: {
               presets: ['react', 'es2015', 'stage-0']
             }
@@ -35,14 +49,6 @@ module.exports = {
           },
           {
             test: /\.(png|jpg|gif|svg|ico)$/,
-            // use: [
-            //   {
-            //     loader: 'url-loader',
-            //     options: {
-            //       limit: 8192
-            //     }
-            //   }
-            // ]
             loader: 'url-loader',
             options: {
               limit: 8192
@@ -71,5 +77,5 @@ module.exports = {
         contentBase: path.join(__dirname, './dist'), // 服务器根
         compress: true, // 是否压缩
         port: 8846
-    }
+    },
 }

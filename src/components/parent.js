@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Children from "./chilldren";
+import Children from "@components/chilldren";
+import Button from "@components/button";
 
 export class Parent extends React.Component {
   constructor(props) {
@@ -26,10 +27,7 @@ export class Parent extends React.Component {
                 )
             })
         }
-        {/* <Children 
-            count={this.state.count}
-            ref={(ref) => this.ref = ref}
-        ></Children> */}
+        <Button value={"测试按钮"}></Button>
         <button onClick={this.testClik}>Click me</button>
       </div>
     );
