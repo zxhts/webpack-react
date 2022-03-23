@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import Children from "@components/chilldren";
+import React from 'react';
+import Children from "./chilldren";
 import Button from "@components/button";
-
+import { appPage } from "@page/appPage";
+@appPage
 export class Parent extends React.Component {
   constructor(props) {
     super(props);

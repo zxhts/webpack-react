@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "experimentalDecorators": true,
     "target": "es2016",                              
     "module": "commonjs",     
     "esModuleInterop": true,                      
@@ -8,10 +9,12 @@
     "jsx": "react" ,
     "allowJs": true,
     "outDir": "dist",
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"],
-    }                       
+      "@components/*": ["./src/components/*"],
+      "@page/*": ["./src/page/*"]
+    },
+    "emitDecoratorMetadata": true                       
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
