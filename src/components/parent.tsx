@@ -1,9 +1,12 @@
 import React from 'react';
 import Children from "./chilldren";
 import Button from "@components/button";
-import { appPage } from "@page/appPage";
-@appPage
-export class Parent extends React.Component {
+import { Test } from '@page/test';
+
+export class Parent extends React.Component<any, any>{
+  private ref: any;
+  private data: any;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -11,10 +14,13 @@ export class Parent extends React.Component {
     };
     this.ref = '';
     this.data = [{id: 1, name: '张三'}]
+    const test = new Test();
+    // @ts-ignore
+    console.log(test.name, test.age, '>>>>>>');
   }
 
   render() {
-    console.log('父组件渲染了')
+    console.log('父组件渲染了');
     return (
       <div>
         {
@@ -44,21 +50,10 @@ export class Parent extends React.Component {
         // {id: 2, name: '李四'},
         // {id: 3, name: '王五'}
     ]
-       this.setState({
-          count: this.state.count + 1
-      })
+    this.setState({
+      count: this.state.count + 1
+    })
   }
 }
 
-// export const Parent = () => {
-//     const [count, setCount] = useState(0);
 
-//     return (
-//         <div>
-//             <Children count={count}></Children>
-//             <button onClick={() => setCount(count + 1)}>
-//                 Click me
-//             </button>
-//         </div>
-//     )
-// }
