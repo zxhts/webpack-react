@@ -11,6 +11,11 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 // eslint-disable-next-line no-unused-vars
 const HtmlWebpackExternalsPlugin = require("html-webpack-externals-plugin");
 const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+
+/** 读取.env文件的配置 */
+const dotenv = require("dotenv");
+dotenv.config();
 
 const setMPA = () => {
   const entry = {};
@@ -52,18 +57,17 @@ const setMPA = () => {
 };
 
 const { entry, htmlWebpackPlugins } = setMPA();
-console.log()
 
 /**
  * @type {import('webpack').Configuration}
  */
 module.exports = {
   // 配置环境
-  mode: 'none', // 不配置mode,默认模式是生产环境production
+  mode: 'development', // 不配置mode,默认模式是生产环境production
   // watch: true,
   context: process.cwd(), // 上下文 项目打包的相对路径
 
-  // devtool: "eval-source-map",
+  devtool: "eval",
 
   // 配置入口
   entry: {
@@ -164,7 +168,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, "./dist"), // 服务器根
     compress: true, // 是否压缩
-    port: 8846,
+    port: process.env.PORT,
     // hot: true
     proxy: {
       '/download': {
@@ -220,6 +224,12 @@ module.exports = {
           // to: path.join(__dirname, './dist/favicon.ico'),
           to: "./", // ./表示的就是dist文件的下一层
         },
+        {
+          context: "./public",
+          from: "*.png",
+          // to: path.join(__dirname, './dist/favicon.ico'),
+          to: "./", // ./表示的就是dist文件的下一层
+        },
       ],
     }),
     new MiniCssExtractPlugin({
@@ -232,10 +242,11 @@ module.exports = {
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new FriendlyErrorsWebpackPlugin({
       compilationSuccessInfo: {
-        messages: [`You application is running here http://localhost:3000`],
+        messages: [`You application is running here http://localhost:${process.env.PORT}`],
       },
       clearConsole: true
     }),
+    // new BundleAnalyzerPlugin(),
     function() {
       this.hooks.done.tap('done', (stats) => {
           if (stats.compilation.errors && stats.compilation.errors.length && process.argv.indexOf('--watch') == -1)

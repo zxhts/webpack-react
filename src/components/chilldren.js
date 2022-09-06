@@ -54,7 +54,7 @@ export default class Children extends React.Component{
                             justifyContent: "center"
                         }
                     }>
-                     1
+                     {this.props.count}
                     </div>
                 </div>
                 

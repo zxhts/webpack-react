@@ -1908,6 +1908,11 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
+"@polka/url@^1.0.0-next.20":
+  version "1.0.0-next.21"
+  resolved "https://registry-npm.rd.chanjet.com/@polka/url/download/@polka/url-1.0.0-next.21.tgz#5de5a2385a35309427f6011992b544514d559aa1"
+  integrity sha1-XeWiOFo1MJQn9gEZkrVEUU1VmqE=
+
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.0"
   resolved "https://registry-npm.rd.chanjet.com/@rollup/plugin-babel/download/@rollup/plugin-babel-5.3.0.tgz"
@@ -2903,6 +2908,11 @@ acorn-walk@^7.0.0, acorn-walk@^7.1.1:
   resolved "https://registry-npm.rd.chanjet.com/acorn-walk/download/acorn-walk-7.2.0.tgz"
   integrity sha1-DeiJpgEgOQmw++B7iTjcIdLpZ7w=
 
+acorn-walk@^8.0.0:
+  version "8.2.0"
+  resolved "https://registry-npm.rd.chanjet.com/acorn-walk/download/acorn-walk-8.2.0.tgz#741210f2e2426454508853a2f44d0ab83b7f69c1"
+  integrity sha1-dBIQ8uJCZFRQiFOi9E0KuDt/acE=
+
 acorn@^6.0.7, acorn@^6.4.1:
   version "6.4.2"
   resolved "https://registry-npm.rd.chanjet.com/acorn/download/acorn-6.4.2.tgz"
@@ -2912,6 +2922,11 @@ acorn@^7.0.0, acorn@^7.1.1:
   version "7.4.1"
   resolved "https://registry-npm.rd.chanjet.com/acorn/download/acorn-7.4.1.tgz"
   integrity sha1-/q7SVZc9LndVW4PbwIhRpsY1IPo=
+
+acorn@^8.0.4:
+  version "8.8.0"
+  resolved "https://registry-npm.rd.chanjet.com/acorn/download/acorn-8.8.0.tgz#88c0187620435c7f6015803f5539dae05a9dbea8"
+  integrity sha1-iMAYdiBDXH9gFYA/VTna4Fqdvqg=
 
 acorn@^8.2.4, acorn@^8.4.1, acorn@^8.5.0, acorn@^8.7.0:
   version "8.7.0"
@@ -5370,6 +5385,11 @@ dotenv@^10.0.0:
   version "10.0.0"
   resolved "https://registry-npm.rd.chanjet.com/dotenv/download/dotenv-10.0.0.tgz"
   integrity sha1-PUInuPuV+BCWzdK2ZlP7LHCFuoE=
+
+dotenv@^16.0.1:
+  version "16.0.1"
+  resolved "https://registry-npm.rd.chanjet.com/dotenv/download/dotenv-16.0.1.tgz#8f8f9d94876c35dac989876a5d3a82a267fdce1d"
+  integrity sha1-j4+dlIdsNdrJiYdqXTqComf9zh0=
 
 duplexer@^0.1.2:
   version "0.1.2"
@@ -9173,6 +9193,11 @@ move-concurrently@^1.0.1:
     rimraf "^2.5.4"
     run-queue "^1.0.3"
 
+mrmime@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry-npm.rd.chanjet.com/mrmime/download/mrmime-1.0.1.tgz#5f90c825fad4bdd41dc914eff5d1a8cfdaf24f27"
+  integrity sha1-X5DIJfrUvdQdyRTv9dGoz9ryTyc=
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry-npm.rd.chanjet.com/ms/download/ms-2.0.0.tgz"
@@ -9558,6 +9583,11 @@ open@^8.0.9, open@^8.4.0:
     define-lazy-prop "^2.0.0"
     is-docker "^2.1.1"
     is-wsl "^2.2.0"
+
+opener@^1.5.2:
+  version "1.5.2"
+  resolved "https://registry-npm.rd.chanjet.com/opener/download/opener-1.5.2.tgz#5d37e1f35077b9dcac4301372271afdeb2a13598"
+  integrity sha1-XTfh81B3udysQwE3InGv3rKhNZg=
 
 opn@^5.5.0:
   version "5.5.0"
@@ -11860,6 +11890,15 @@ simple-swizzle@^0.2.2:
   dependencies:
     is-arrayish "^0.3.1"
 
+sirv@^1.0.7:
+  version "1.0.19"
+  resolved "https://registry-npm.rd.chanjet.com/sirv/download/sirv-1.0.19.tgz#1d73979b38c7fe91fcba49c85280daa9c2363b49"
+  integrity sha1-HXOXmzjH/pH8uknIUoDaqcI2O0k=
+  dependencies:
+    "@polka/url" "^1.0.0-next.20"
+    mrmime "^1.0.0"
+    totalist "^1.0.0"
+
 sisteransi@^1.0.5:
   version "1.0.5"
   resolved "https://registry-npm.rd.chanjet.com/sisteransi/download/sisteransi-1.0.5.tgz"
@@ -12724,6 +12763,11 @@ toidentifier@1.0.1:
   resolved "https://registry-npm.rd.chanjet.com/toidentifier/download/toidentifier-1.0.1.tgz"
   integrity sha1-O+NDIaiKgg7RvYDfqjPkefu43TU=
 
+totalist@^1.0.0:
+  version "1.1.0"
+  resolved "https://registry-npm.rd.chanjet.com/totalist/download/totalist-1.1.0.tgz#a4d65a3e546517701e3e5c37a47a70ac97fe56df"
+  integrity sha1-pNZaPlRlF3AePlw3pHpwrJf+Vt8=
+
 tough-cookie@^4.0.0:
   version "4.0.0"
   resolved "https://registry-npm.rd.chanjet.com/tough-cookie/download/tough-cookie-4.0.0.tgz"
@@ -13206,6 +13250,21 @@ webidl-conversions@^6.1.0:
   version "6.1.0"
   resolved "https://registry-npm.rd.chanjet.com/webidl-conversions/download/webidl-conversions-6.1.0.tgz"
   integrity sha1-kRG01+qArNQPUnDWZmIa+ni2lRQ=
+
+webpack-bundle-analyzer@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry-npm.rd.chanjet.com/webpack-bundle-analyzer/download/webpack-bundle-analyzer-4.5.0.tgz#1b0eea2947e73528754a6f9af3e91b2b6e0f79d5"
+  integrity sha1-Gw7qKUfnNSh1Sm+a8+kbK24PedU=
+  dependencies:
+    acorn "^8.0.4"
+    acorn-walk "^8.0.0"
+    chalk "^4.1.0"
+    commander "^7.2.0"
+    gzip-size "^6.0.0"
+    lodash "^4.17.20"
+    opener "^1.5.2"
+    sirv "^1.0.7"
+    ws "^7.3.1"
 
 webpack-cli@3.3.12:
   version "3.3.12"
@@ -13725,6 +13784,11 @@ ws@^6.2.1:
   integrity sha1-3Vzb1XqZeZFgl2UtePHMX66gwy4=
   dependencies:
     async-limiter "~1.0.0"
+
+ws@^7.3.1:
+  version "7.5.9"
+  resolved "https://registry-npm.rd.chanjet.com/ws/download/ws-7.5.9.tgz#54fa7db29f4c7cec68b1ddd3a89de099942bb591"
+  integrity sha1-VPp9sp9MfOxosd3TqJ3gmZQrtZE=
 
 ws@^7.4.6:
   version "7.5.7"
