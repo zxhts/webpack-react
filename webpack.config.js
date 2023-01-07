@@ -12,6 +12,11 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const HtmlWebpackExternalsPlugin = require("html-webpack-externals-plugin");
 const FriendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+// 擦除无效的CSS文件
+const PurgecssPlugin = require('purgecss-webpack-plugin');
+const PATHS = {
+  src: path.join(__dirname, 'src')
+};
 
 /** 读取.env文件的配置 */
 const dotenv = require("dotenv");
@@ -67,7 +72,7 @@ module.exports = {
   // watch: true,
   context: process.cwd(), // 上下文 项目打包的相对路径
 
-  devtool: "eval",
+  devtool: 'source-map',
 
   // 配置入口
   entry: {
@@ -87,7 +92,8 @@ module.exports = {
     extensions: [".ts", ".tsx", ".json", ".js"],
     alias: {
       // "@components": __dirname + "/src/components",
-      // "@page": __dirname+ "/src/page"
+      "@page": __dirname+ "/src/page",
+      // "react": path.join(__dirname, 'node_modules/react/umd/react.production.min.js')
     },
     plugins: [
       new TsconfigPathsPlugin({ configFile: path.join(__dirname, "tsconfig.json") }),
@@ -146,20 +152,50 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        use: ["style-loader", "css-loader", "less-loader"],
+        use: [
+          // "style-loader", 
+          MiniCssExtractPlugin.loader,
+          "css-loader", 
+          "less-loader"
+        ],
       },
       {
         test: /\.(png|jpg|gif|svg|ico)$/,
-        use: [{
-          // loader: "url-loader",
-          // options: {
-          //   limit: 10240,
-          // },
-          loader: "file-loader",
-          options: {
-            name: "[name]_[contenthash:8].[ext]",
+        use: [
+          {
+            // loader: "url-loader",
+            // options: {
+            //   limit: 10240,
+            // },
+            loader: "file-loader",
+            options: {
+              name: "[name]_[contenthash:8].[ext]",
+            },
           },
-        }],
+          {
+            loader: "image-webpack-loader",
+            options: {
+              mozjpeg: {
+                progressive: true,
+              },
+              // optipng.enabled: false will disable optipng
+              optipng: {
+                enabled: false,
+              },
+              pngquant: {
+                quality: [0.65, 0.90],
+                speed: 4
+              },
+              gifsicle: {
+                interlaced: false,
+              },
+              // the webp option will enable WEBP
+              webp: {
+                quality: 75
+              }
+            }
+          }
+      ],
       },
     ],
   },
@@ -255,8 +291,12 @@ module.exports = {
               process.exit(3);
           }
       })
-    }    
+    },   
     
+    // 擦除无效的css
+    new PurgecssPlugin({
+      paths: glob.sync(`${PATHS.src}/**/*`,  { nodir: true }),
+    })
 
     // new webpack.optimize.ModuleConcatenationPlu gin()
     // new HtmlWebpackExternalsPlugin({
