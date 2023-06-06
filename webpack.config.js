@@ -205,6 +205,7 @@ module.exports = {
     contentBase: path.join(__dirname, "./dist"), // 服务器根
     compress: true, // 是否压缩
     port: process.env.PORT,
+    host: '0.0.0.0',
     // hot: true
     proxy: {
       '/download': {
