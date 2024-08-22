@@ -2,7 +2,6 @@ import React from 'react';
 import Children from "./chilldren";
 import Button from "@components/button";
 import { Test } from '@page/test';
-import encrypt from "@chanjet/encryption";
 import bg from '../bg.jpg';
 import './parent.less'
 export class Parent extends React.Component<any, any>{
@@ -19,6 +18,7 @@ export class Parent extends React.Component<any, any>{
     const test = new Test();
     // @ts-ignore
     console.log(test.name, test.age, '>>>>>>');
+    const test2 = test.name ?? '123';
   }
 
   render() {
@@ -64,8 +64,7 @@ export class Parent extends React.Component<any, any>{
     console.log('hahha');
     const key = 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApeurA0SpOgF1CL/7k//fDWe1rmR3yhsp1Kv/ioqYSOrIkdD9zoAsa2tnKj5cOpQxco9v9rlkxLNO6pzFtWsQOcWwXRUrlzJibsVCftr7NJq/Cxn5yKMtr3C/RQwBW4ZDjF4a0kylCkLmjKAx4XwdP/QjiHFf+8KsKJxLCa96Ag/W5+6V6oOpQIWU/hq0FbDmd9de9Wo7g+K9Ro8r4zicXRhWZ/OeejvGFkVc/DpzksxbW3Pot+ZzFz7HTpTTlOD3gjbjmqEJKjxSJ8SzzkA9pKxUO9N6e+zTHmbhS8G/PJminbm4TRM9P/2zxcTPxhc4sRP4eO9AZs1na3e8wd4qvQIDAQAB'
     try{
-      const res = encrypt('123', key);
-      console.log(res, '>>>>');
+      console.log(key, '>>>>');
     }catch(err){
       console.log(err);
     }

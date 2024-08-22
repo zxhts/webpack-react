@@ -91,8 +91,8 @@ module.exports = {
   resolve: {
     extensions: [".ts", ".tsx", ".json", ".js"],
     alias: {
-      // "@components": __dirname + "/src/components",
-      "@page": __dirname+ "/src/page",
+      "@components": __dirname + "/src/components",
+      "page": path.resolve(__dirname, 'src/page'),
       // "react": path.join(__dirname, 'node_modules/react/umd/react.production.min.js')
     },
     plugins: [
@@ -205,7 +205,7 @@ module.exports = {
     contentBase: path.join(__dirname, "./dist"), // 服务器根
     compress: true, // 是否压缩
     port: process.env.PORT,
-    host: '0.0.0.0',
+    // host: '0.0.0.0',
     // hot: true
     proxy: {
       '/download': {
